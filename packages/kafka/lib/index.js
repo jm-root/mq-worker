@@ -11,9 +11,12 @@ class Service {
     event.enableEvent(this)
     this.ready = true
     const url = new URL(opts.kafka)
-    console.log(url.host)
-    this.client = new Kafka.KafkaClient({kafkaHost: url.host})
-    // this.client = new Kafka.Client(url.host)
+    const {protocol, host} = url
+    if (protocol === 'zk') {
+      this.client = new Kafka.Client(host) // deprecated
+    } else {
+      this.client = new Kafka.KafkaClient({kafkaHost: host})
+    }
   }
 
   onReady () {
