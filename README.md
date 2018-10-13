@@ -6,4 +6,4 @@
 
 gateway Gateway服务器Uri
 
-kafka [] Zookeeper uri zk://127.0.0.1:2181
+kafka [] Zookeeper uri: zk://127.0.0.1:2181 或者 kafka uri: kafka://127.0.0.1:9092
