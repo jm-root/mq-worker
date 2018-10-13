@@ -1,0 +1,9 @@
+{
+  "name": "kafka",
+  "version": "0.0.0",
+  "description": "kafka worker",
+  "main": "./lib/index",
+  "dependencies": {
+    "kafka-node": "^2.6.1"
+  }
+}
