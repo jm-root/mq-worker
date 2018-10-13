@@ -12,7 +12,7 @@ class Service {
     this.ready = true
     const url = new URL(opts.kafka)
     const {protocol, host} = url
-    if (protocol === 'zk') {
+    if (protocol === 'zk:') {
       this.client = new Kafka.Client(host) // deprecated
     } else {
       this.client = new Kafka.KafkaClient({kafkaHost: host})
