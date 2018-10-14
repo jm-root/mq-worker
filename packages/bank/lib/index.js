@@ -1,23 +1,23 @@
+const log = require('jm-log4js')
 const Worker = require('worker')
+const logger = log.getLogger('bank')
 
 class Service extends Worker {
-  constructor (opts = {}) {
-    super(opts)
+  constructor (app, opts = {}) {
+    super(app, opts)
 
-    this.on('message', message => {
-      console.log('bank worker', message)
+    app.on('bank.user.create', message => {
+      logger.debug('bank.user.create', message)
     })
+
+    this.subscribe('bank.user.create')
   }
 }
 
 module.exports = function (opts = {}) {
-  const o = new Service(opts)
-  this.emit(
-    'consume',
-    o,
-    {
-      topics: ['bank.user.create']
-    }
-  )
+  if (opts.debug) {
+    logger.setLevel('debug')
+  }
+  const o = new Service(this, opts)
   return o
 }

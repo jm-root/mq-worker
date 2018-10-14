@@ -3,9 +3,10 @@ const MS = require('jm-ms')
 const ms = new MS()
 
 class Service {
-  constructor (opts = {}) {
+  constructor (app, opts = {}) {
     event.enableEvent(this)
     this.ready = true
+    this.app = app
     this.gateway = opts.gateway
 
     this.bind('user')
@@ -13,6 +14,10 @@ class Service {
 
   onReady () {
     return this.ready
+  }
+
+  subscribe (...args) {
+    this.app.emit('subscribe', ...args)
   }
 
   async bind (name, uri) {
