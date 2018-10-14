@@ -38,6 +38,7 @@ class Service {
     }
 
     id && (consumerOptions.id = id)
+    logger.debug(`createConsumerGroup`, consumerOptions, topics)
     const consumerGroup = new ConsumerGroup(consumerOptions, topics)
 
     function onError (e) {
