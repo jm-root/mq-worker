@@ -6,11 +6,11 @@ class Service extends Worker {
   constructor (app, opts = {}) {
     super(app, opts)
 
-    app.on('bank.user.create', message => {
-      logger.debug('bank.user.create', message)
+    app.on('user.update', message => {
+      logger.debug('user.update', message)
     })
 
-    this.subscribe('bank.user.create')
+    this.subscribe('user.update')
   }
 }
 
