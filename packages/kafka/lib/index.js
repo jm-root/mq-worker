@@ -104,8 +104,8 @@ module.exports = function (opts = {}) {
     logger.setLevel('debug')
   }
   const o = new Service(this, opts)
-  this.on('subscribe', topics => {
-    o.subscrible(topics)
+  this.on('subscribe', () => {
+    o.subscrible(...arguments)
   })
   return o
 }
