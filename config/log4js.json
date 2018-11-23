@@ -28,12 +28,22 @@
       ]
     },
     {
+      "type": "dateFile",
+      "filename": "logs/log",
+      "pattern": "-yyyyMMdd.log",
+      "alwaysIncludePattern": true,
+      "category": [
+        "log"
+      ]
+    },
+    {
       "type": "console"
     }
   ],
   "replaceConsole": true,
   "levels": {
-    "kafka": "debug",
-    "bank": "info"
+    "kafka": "info",
+    "bank": "info",
+    "log": "info"
   }
 }

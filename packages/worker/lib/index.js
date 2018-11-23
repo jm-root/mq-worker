@@ -18,6 +18,7 @@ class Service {
 
   subscribe (...args) {
     this.app.emit('subscribe', ...args)
+    return this
   }
 
   async bind (name, uri) {

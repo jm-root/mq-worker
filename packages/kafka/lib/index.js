@@ -55,7 +55,7 @@ class Service {
       } catch (e) {
       }
       try {
-        app.emit(topic, value)
+        app.emit(topic, value, topic)
       } catch (e) {
         logger.error(e)
       }
@@ -104,8 +104,8 @@ module.exports = function (opts = {}) {
     logger.setLevel('debug')
   }
   const o = new Service(this, opts)
-  this.on('subscribe', () => {
-    o.subscrible(...arguments)
+  this.on('subscribe', (...args) => {
+    o.subscrible(...args)
   })
   return o
 }

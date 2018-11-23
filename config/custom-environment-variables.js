@@ -1,5 +1,5 @@
 module.exports = {
   kafka: 'kafka',
-  groupId: 'groupId',
+  groupId: 'group_id',
   gateway: 'gateway'
 }
